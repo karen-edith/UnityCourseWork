@@ -20,12 +20,19 @@ public class DeliveryDriver : MonoBehaviour
     {
         if(other.tag == "Boost")
         {
+            //if the speed at which the car is moving is less than the initial move speed then the
+            //car bumped into something and has slowed down so boost is going to speed the car up
+            //to the intial speed
             if(moveSpeed < initialMoveSpeed)
             {
                 moveSpeed = initialMoveSpeed;
             }
 
-            if(moveSpeed < maxSpeed)
+            //if the speed is greater than the initial speed then that car hasn't bumped into anything
+            //and when they cross the boost circle, they'll get a speed boost of 10 but the car will
+            //only be able to boost its speed up to, or as close as possible to 100
+
+            else if(moveSpeed < maxSpeed)
             { 
                 boostSpeed = moveSpeed + 10f;
                 moveSpeed = boostSpeed;
